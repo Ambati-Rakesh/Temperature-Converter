@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title >Temperature Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+        }
+        h3{
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input, textarea, select {
+            margin-bottom: 10px;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        input[type="button"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        .task {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #fff;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+       <center><img src="Screenshot (144).png" alt="" width="300px"></center> 
+       
+        <h1>Temperature Converter</h1>
+        <form id="taskForm" >
+            <select id="from" required>
+                <option value="Celsius1">Celsius (°C)</option>
+                <option value="Fahrenheit1">Fahrenheit (°F)</option>
+                <option value="Kelvin1">kelvin (K)</option>
+            </select>
+            <center><h4>To</h4></center>
+            <select id="to" required>
+                <option value="Celsius2">Celsius (°C)</option>
+                <option value="Fahrenheit2">Fahrenheit (°F)</option>
+                <option value="Kelvin2">kelvin (K)</option>
+            </select>
+            <input id="inputfield" type="number" placeholder="Enter Temperature">
+            <input type="button" value="Convert" onclick="TemperatureChange()">
+            <input type="text" id="result">
+
+       
+        </form>
+        <div id="taskList"></div>
+    </div>
+
+    <script>
+   
+        function TemperatureChange()
+        {
+          let a=document.getElementById("from").value;
+          let b=document.getElementById("to").value;
+          let x= document.getElementById("inputfield").value;
+          let r=document.getElementById("result");
+          let ans;
+          
+          if(a==="Celsius1" && b==="Celsius2")
+          {
+            r.value=x;         
+          }
+          else if(a==="Fahrenheit1" && b==="Fahrenheit2")
+          {
+            r.value=x;
+          }
+          else if(a==="Kelvin1" && b==="Kelvin2")
+          {
+            r.value=x;
+          }
+          else if(a==="Celsius1" && b==="Fahrenheit2")
+          {
+            ans= x * 1.8 + 32;
+            r.value=ans.toString()+" °F";
+          }
+          else if(a==="Celsius1" && b==="Kelvin2")
+          {
+            ans= parseInt(x)+ 273.15;
+            r.value=ans.toString()+" K";
+          }
+          else if(a==="Fahrenheit1" && b==="Celsius2")
+          {
+            ans= (x-32)/1.8;
+            r.value=ans.toString()+" °C";
+          }
+          else if(a==="Fahrenheit1" && b==="Kelvin2")
+          {
+             ans= (x+ 459.67) *5/9 ;
+             r.value=ans.toString()+" K";
+          }
+          else if(a==="Kelvin1" && b==="Celsius2")
+          {
+            ans = x - 273.15;
+            r.value=ans.toString()+" °C"
+          }
+          else if(a==="Kelvin1" && b==="Fahrenheit2")
+          {
+            ans = x *  9/5 - 459.67;
+            r.value=ans.toString() + " °F"
+          }
+        }
+     
+     </script>
+
+</body>
+
+
+
+
+</html>
